@@ -1,0 +1,64 @@
+/* 
+#home {
+    border: 10px solid black;
+}
+#about {
+    border: 10px solid orange;
+}
+#contact {
+    border: 10px solid red;
+} */
+/* class */
+/* .segments {
+    padding: 15px;
+    background-color: teal;
+    color: white;
+    font-size: 20px;
+} */
+/* .bold-text {
+    font-weight: bolder;
+}
+[href] {
+    font-style: italic;
+}
+[href="./auth.html"] {
+    color: brown;
+} */
+/* li:last-child a {
+    font-size: 30px;
+}
+li:first-child a {
+
+} */
+/* header nav > ul > li:not(:last-child, :first-child) {
+    background-color: blue;
+} */
+
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+/* vh, vw */
+/* view height, view width */
+
+#home {
+    /* 16px */
+    font-size: calc(calc(100vw / 80) + 16px);
+    height: 20rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
