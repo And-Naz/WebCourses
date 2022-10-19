@@ -1,0 +1,54 @@
+header > h1 {
+    text-align: center;
+    padding: 24px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    width: 100%;
+    background-color: #606060;
+}
+
+.navigation ul > li {
+    text-align: center;
+}
+
+.navigation ul > li > a {
+    font-size: 32px;
+    text-decoration: none;
+}
+
+.segment {
+    background-color: #222222;
+}
+
+.segment > h2 {
+    padding: 24px 24px 8px 24px;
+}
+
+.segment > p.text {
+    padding: 16px;
+    padding-top: 0;
+    text-align: justify;
+    font-size: 20px;
+}
+.segment > p.text + p.text {
+    margin-top: 64px;
+}
+
+main > hr {
+    border-color: #00cece;
+}
+
+footer {
+    width: 100%;
+    background-color: #606060;
+    text-align: center;
+    padding: 24px;
+}
+
+footer > .text {
+    background-color: #606060;
+    text-decoration: overline;
+    font-size: 30px;
+}

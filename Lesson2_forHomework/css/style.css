@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    font-size: 16px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a, a:active, a:visited {
+    color: inherit;
+}
+
+.text {
+    background-color: #222222;
+    color: #00cece;
+    font-size: 20px;
+}
+
+.subtitle-text {
+    letter-spacing: 0em;
+    text-shadow: 0 0 25px #00ffff;
+    font-size: 40px;
+}
+
+.title-text {
+    font-style: italic;
+    letter-spacing: 0.8em;
+    text-shadow: 0 0 50px #00ffff;
+    font-size: 60px;
+}
