@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+
+
+body {
+    background-color: #282828;
+}
+
+h1 {
+    text-shadow:
+        0 0 82px #0fa,
+        0 0 50px #0fa;
+    /* 
+text shadow neon effect poisk areci qta bayc chem haskace principy
+yerevi guyneri xarnurda eli che vaxy jamanak unem knayem sa) */ 
+}
+
+header {
+    background-color: grey
+}
+
+header h1 {
+    font-style: italic;
+    font-size: 45px;
+    text-align: center;
+    background-color: #282828;
+    color: aqua;
+    letter-spacing: 20px;
+
+}
+
+header ul li {
+    text-align: center;
+    list-style-type: none;
+    color: aqua
+}
+
+header ul li a {
+    color: aqua;
+    text-decoration: none;
+}
+
+.text {
+    padding: 10px;
+    /* վերևում որ 0 եմ տալիս մարջին փադդինգ տեքստը իրարա կպնում 
+    դրա համար սա գրեցի, բայց եթե չեմ զրոյացնում օկա, սենց գրեցի որ br չանեմ իմ լոգիկայով */
+}
+
+
+
+
+.segment {
+    background-color: #282828;
+    color: aqua;
+}
+
+
+hr {
+    border: 1px solid aqua;
+}
+
+footer {
+    background-color: grey;
+    color: aqua;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+footer p {
+    width: 390px;
+    border-top: 2px solid aqua;
+}
