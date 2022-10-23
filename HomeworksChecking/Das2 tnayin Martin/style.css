@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #00b8ff; /* esenc sxala saxin guyn tal */
+}
+header >h1 , main {
+    background-color: black;
+}
+main > section h2,header>h1 {
+    color: #00b8ff;
+    text-shadow:
+    0 0 2px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+header h1,nav, footer{
+    /* aranc flex er petq ane; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header nav, footer{
+    background-color: #726f6a;
+}
+header h1 {
+    font-style: italic;
+    letter-spacing: 20px;
+}
+section p:last-child{
+    border-bottom: 3px solid #00b8ff
+}
+ul >li{
+    list-style-type: none
+}
