@@ -1,0 +1,72 @@
+.main-axis {
+    position: absolute;
+    height: 2px;
+    background-color: red;
+    top: 50%;
+    left: 0;
+    right: 0;
+}
+
+.additional-axis {
+    position: absolute;
+    width: 2px;
+    background-color: orange;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+}
+
+.flex-container {
+    min-height: 800px;
+    max-width: 800px;
+    display: flex;
+
+    /* himnakan arancq */
+    /* flex-direction: row; */ /* default value */
+    /* flex-direction: column; */
+    flex-direction: column;
+    justify-content: center;
+    /* justify-content: space-around;
+    justify-content: space-between;
+    justify-content: flex-start;
+    justify-content: flex-end; */
+
+    /* erkrodayin aranc */
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    /* align-content: center;
+
+    align-self: flex-end; */
+}
+
+.flex-element {
+    background: #00c0c0;
+    font-size: 20px;
+    /* width: 500px; */
+    min-height: 200px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+/* .flex-element:last-child {
+    min-width: 300px;
+}  */
+/* 
+.elem1 {
+    order: 1;
+}
+.elem2 {
+    order: 2;
+}
+.elem3 {
+    order: 3;
+}
+.elem4 {
+    order: 4;
+}
+.flex-element:last-child {
+    font-size: 50px;
+} */

@@ -1,0 +1,146 @@
+:root {
+    --light-color: azure;
+    --dark-color: #080501;
+}
+
+.header {
+    width: 100%;
+    background: #ec5c51;
+    display: flex;
+    padding: 15px;
+}
+
+.logo-container {
+    width: 80px;
+    height: 80px;
+}
+
+.logo-container img {
+    width: 100%;
+    object-fit: cover;
+    /* background-size: cover; */
+    /* border-radius: 50%; */
+    border-radius: 50%;
+}
+
+.header-content {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.navigation {
+    width: 100%;
+}
+
+.navigation ul {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 35px;
+    margin-top: 25px;
+}
+
+.navigation ul > li + li {
+    margin-left: 16px;
+}
+
+.navigation ul > li:last-child {
+    margin-left: auto;
+}
+
+.navigation ul > li > a {
+    font-size: 20px;
+    color: var(--light-color);
+}
+
+.main-title {
+    display: flex;
+    justify-content: center;
+    font-size: calc(2.2em + calc(100vw / 175));
+    font-style: italic;
+    color: var(--light-color);
+}
+
+.header-content > .main-title {
+    /* margin-left: -48px; */
+    padding-right: 48px;
+}
+
+.title {
+    font-style: italic;
+    font-size: calc(1.8em + calc(100vw / 175));
+}
+.text {
+    font-size: calc(0.65em + calc(100vw / 175));
+}
+
+.segment {
+    background-color: #f2f2f2;
+    box-shadow: 0 0 15px #ebebeb;
+    border-radius: 1em;
+    padding: 0.25em;
+    display: flex;
+    flex-direction: column;
+}
+
+.segment > .title {
+    margin-top: 0.25em;
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.segment:first-child {
+    margin-top: 0.75em;
+}
+
+.main {
+    padding: 1em 2.25em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "a a"
+        "b c"
+        "d d"
+    ;
+    grid-row-gap: 3em;
+    grid-column-gap: 1em;
+}
+
+#home {
+    grid-area: a;
+}
+
+#about {
+    grid-area: b;
+}
+
+#team {
+    grid-area: c;
+    align-items: center;
+}
+
+#team > .title {
+    margin-right: auto;
+}
+
+#team > img {
+    width: 95%;
+    flex: 1;
+    margin-bottom: 1.25em;
+    border-radius: 0.4em;
+    object-fit: cover;
+}
+
+#content {
+    grid-area: d;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-image: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(236 92 81) 0, rgba(255,255,255,1) 100%);
+}
