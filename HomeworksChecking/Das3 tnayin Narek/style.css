@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 180%;
+    /* զուտ նրա համար որ scroll-ը մինչև section 10 իջնի կեսից չկանգնի */
+}
+
+header{position: fixed;
+background-color: blue;
+    width: 100%;
+    top:0;
+    padding: 10px;
+    z-index: 1;
+    /* z-index դրել եմ որովհետև սքռոլլով իջնելուց վեռնագիրը  վերև տանելուց ընգնում էր header - վրա  */
+}
+
+header > h1 {
+    text-align: center;
+    color: white;
+    text-align: center;
+    animation-name: example;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+
+}
+
+
+@keyframes example {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: white}
+    100% {color: green;}
+    
+  }
+
+
+
+main{
+    margin-top: 2.5em;
+    /* սա տվեցի որ չընգնի fixed արած header - տակ, այլ ընկնի ուղիղ տակը */
+}
+
+
+.subtitle-text{
+    padding: 5px;
+    position: sticky;
+    top: 50px;
+
+}
+
+
+.segment> h1 {
+    background-color: aqua;
+}
+
+
+
+.segment p.text{
+    padding: 20px;
+ 
+    
+}
+
+
+footer {
+    width: 100%;
+    background-color: #606060;
+    text-align: center;
+    padding: 24px;
+    animation-name: example2;
+    animation-duration: 4s;
+    animation-direction: reverse;
+    animation-iteration-count: infinite;
+}
+
+footer > .text {
+    color:beige;
+    text-decoration: overline;
+    font-size: 25px;
+   
+    
+}
+
+
+@keyframes example2 {
+    from {background-color: red;}
+    to {background-color: grey }
+    
+  }
+
+
+
+  /* Անդ ջան նախորդ քո ուղարկած ճիշտ տնայինին նայելով գրել եմ))  էդ կլասների կամ թեգերի ու իրանց մեջի էղածների հետ ոնց որ ճիշտ եմ չէ աշխատել?)*/
