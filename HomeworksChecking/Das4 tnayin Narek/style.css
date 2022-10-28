@@ -1,0 +1,272 @@
+/* Անդ ջան 2 zipov el  voncor menak videonern es uxarkel)  bayc aveli lav im hamar sax proekty artagrel em videoyic)
+
+
+Ախպերս տենց դիզայնի հետեվից շատ չեմ ընգել responsive -հնարավորինս դզել եմ, էս էջի ներքեվումա Medianer-ը
+auth-նել թեթեվ սարքել սաղ հատ-հատ արտագրելով փորձել եմ հասկանալ */
+
+
+
+
+:root{
+--light-color: azure;
+--dark-color: black;
+}
+
+
+*{padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+height: 100%;
+font-size: 16px;
+}
+
+.header{
+width: 100%;
+display: flex;
+background-color: #FF6433;
+padding: 15px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+
+.logo-container {
+    width: 80px;
+    height: 80px
+}
+
+
+.logo-container img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.header-content {
+    flex: 1 1 0%;
+display: flex;
+flex-direction: column;
+margin-left: 15px;
+}
+
+
+.header-content > .main-tittle{
+padding-right: 48px;
+}
+
+.main-tittle {
+    display: flex;
+    justify-content: center;
+    font-size: 38px;
+    font-size: calc(2.2em + calc(100vw / 175));
+    font-style: italic;
+    color: var(--light-color);
+}
+
+
+.segment{
+    display: flex;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 15px   #e6e6e6;
+    padding: 0.25em;
+    display: flex;
+    flex-direction: column;
+}
+
+.segment:first-child{
+    margin-top: 0.75em;
+}
+
+
+.segment> .title{
+    margin-top: 0.25em;
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.navigation {
+
+    width: 100%;
+}
+
+.navigation ul {
+    justify-content: flex-start;
+    width: 100%;
+    display: flex;
+    padding: 0 35px;
+    margin-top: 25px;
+}
+
+.navigation ul > li + li{
+margin-left: 15px;
+}
+
+.navigation ul > li:last-child{
+    margin-left: auto;
+}
+
+.navigation ul > li > a{
+    font-size: 25px;
+    color: var(--light-color);
+    }
+
+
+.main {
+    padding: 1em 2.25em;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-areas: 
+    "a a"
+    "b c"
+    "d d"
+    ;
+    grid-row-gap: 3em;
+    grid-column-gap: 1em
+}
+
+
+
+.tittle {
+    font-style: italic;
+    font-size: calc(1.8em + calc(110vw/175))
+}
+
+
+.text {
+    font-size: calc(0.60em + calc(110vw/175))
+}
+
+
+#home{
+    grid-area: a;
+}
+
+#about{
+    grid-area: b;
+}
+
+#team{
+    grid-area: c;
+    align-items: center;
+}
+
+#team > .title{
+margin-right: auto;
+
+}
+
+#team > img{
+width: 95%;
+flex: 1;
+margin-bottom: 1.25em;
+border-radius: 0.25em
+}
+    
+
+
+
+
+#contant{
+    grid-area: d;
+}
+
+
+
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color:#ac5252;
+}
+
+
+/* Անդ ջան ինչքան գիտեմ առանձին css ով էլ են չէ անում հետո իմպորտ ժամանակս չի հերիքել նայեմ ) */
+/* 1440 ի տակ our team ը ընկնի ներքեվ ստացվեց։ ես սարքեցի 1440-1600px ի ժամանակ տենց լինի */
+
+@media only screen and (min-width: 1440px) and (max-width: 1600px) {
+
+    /* .main {
+        padding: 1em 2.25em;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-areas: 
+        "a a"
+        "b b"
+        "c c"
+        "d d"
+        ;
+        grid-row-gap: 3em;
+        grid-column-gap: 1em
+    } */
+    
+}
+
+
+
+
+/* Անդ ջան էսի 12pro - i համար եմ գրել բայց  */
+
+@media only screen and (min-width: 100px) and (max-width: 440px) {
+
+    /* .main {
+        padding: 1em 2.25em;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "a "
+        "b"
+        "c"
+        "d"
+       
+        ;
+        grid-row-gap: 3em;
+        grid-column-gap: 1em
+    } */
+
+
+
+    /* .segment> .text{
+font-size: 1.2em;
+    }
+
+    .logo-container img{
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    } */
+    
+}
+
+
+@media screen and (max-width: 1440px) {
+    /* STYLES HERE */
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "a"
+        "b"
+        "c"
+        "d"
+        ;
+    }
+
+    .segment > .text {
+        font-size: calc(1.2em + calc(100vw / 175));
+    }
+}
+
+
