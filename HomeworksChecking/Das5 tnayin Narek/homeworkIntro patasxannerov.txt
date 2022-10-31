@@ -1,0 +1,257 @@
++1) WHAT WILL BE THE OUTPUT AND WHY?
+
+const a = 'Hello!';
+const b = null;
+const c = +a + b + 99;
+
+Պատասխան՝ 
+console.log(c); NaN  +a անելու ժամանակ կտեսնի թիվ չի արդեն NaN կտա
+console.log(!c); կտա true եթե NaN-ի հակառակը ժխտված
+
+
++-2) Գրել ֆունկցիա, որը 2 առգումենտ է ստանում, string և number, և ստուգում է, եթե string-ի երկարությունը հավասար է number-ի,
+ապա վերադարձնում է true, հակառակ դեպքում՝ false։
+
+Պատասխան՝ 
+
+function func(string,number){
+	if(string.length === number){
+		console.log("true")
+	}else{
+		console.log("false")
+	}
+}
+func("barev",5) true
+func("barev",4) fasle
+-------------------------------------------------
+petqa return anel vochte console.log
+function get(string, number) {
+	return typeof string === "string" && typeof number === "number" && string.length === number;
+}
+
+
++-3) WHAT WILL BE THE OUTPUT AND WHY?
+
+let a = 3;
+if(!a) {
+   console.log('first one');
+} else if(!a - a) { 
+   console.log('second one');true 0-3 = 3
+} else if(a - !!a) {
+   console.log('third one');3-3=0
+}
+if(!!a && a - !a === 3) {
+   console.log('fourth one'); true 3 && 3 === 3
+}
+
+
+Պատասխան՝ 
+second one
+fourth one
+------------------------------------------
+bacatrutyun chka
+
+-4) Գրել ֆունկցիա, որը կվերածի ստացած number տիպի առգումենտը տասնորդական համակարգի թվից երկուական համակարգի թվի (չօգտագործել toString մեթոդը)։
+------------------------------------------
+function toBinar(num) {
+	if(num === 0) return '0'
+	let byte = ''
+	let tmp = 0
+	while(num){
+		tmp = num % 2
+		byte = tmp + byte
+		num = (num - tmp) / 2
+	}
+	return byte
+}
+
++-5) WHAT WILL BE THE OUTPUT AND WHY?
+
+let a = (!!null && 'second wave' + String(NaN)) || null == 0 ? '5 + 1' : `5 - ${true}`;
+console.log(a);
+
+Պատասխան՝ 
+5-true 
+----------------------
+bacatrutyun chka
+
++6)  Գրել կոդը switch case - ով
+
+let lang = 'ru';
+if (lang === 'en') {
+   console.log('english')
+} else if (lang === 'hy') {
+   console.log('armenian')
+} else if (lang === 'ru') {
+   console.log('russian')
+} else if (lang === 'hy') {
+   console.log('es')
+} else if (lang === 'fr') {
+   console.log('french')
+} else if (lang === 'it') {
+   console.log('italian')
+}
+
+Պատասխան՝ 
+
+let lang = 'ru';
+
+switch(lang) {
+    case 'en': 
+    	console.log('english')
+    break;
+    case 'hy': 
+    	console.log('armenian')
+    break;
+    case 'ru': 
+    	console.log('russian')
+    break;
+    case 'fr' : 
+    	console.log('french')
+    case 'it':
+    	console.log('italian')
+    default:
+	 break; // chkar
+  }
+
+
++7)  WHAT WILL BE THE OUTPUT AND WHY?
+const number = Boolean('true'); true 
+const boolean = String(true); "true" 
+const string = Number(true); 1
+const object = Number('true'); NaN
+const sum = number + string + object;
+console.log(number, boolean, string, object, sum);
+
+
+             true   'true'    1       NaN   NaN
+Sum-ը կտա NaN քանի որ յուրաքանչյուր մաթեմատիկական գործ․ մեջ եթե մեկը NaN-ա կտա NaN կապ չունի սկզբումա գրած թե չէ։
+
+
++-8) Գրել ֆունկցիա, որը կստանա վարկյաններ ու կվերադարձնի ժամ։րոպե։վարկյան
+
+Պատասխան՝ 
+Google- եմ արել հասկանալով գրել
+
+let obj={}
+
+function clock(second){
+let hours   = Math.floor(second / 3600); 
+let minutes = Math.floor((second - (hours * 3600)) / 60); 
+
+obj.hours = hours
+obj.minutes = minutes
+obj.seconds = second
+
+return obj
+}
+
+console.log(clock(8000))
+-----------------------------
+chkar return, u chisht hashvark, petq er mnacord-mnacord haneir u format@ paheir ժամ։րոպե։վարկյան
+function getTime(num) {
+    const time = [0,0,0];
+    if(typeof num === 'number' && num > 0) {
+        const sec = num % 60;
+        const minHourMix = (num - sec) / 60;
+        const min = minHourMix % 60;
+        const hour = (minHourMix - min) / 60;
+        time[0] = hour.toString().padStart(2, "0");
+        time[1] = min.toString().padStart(2, "0");
+        time[2] = sec.toString().padStart(2, "0");
+    }
+    return time.join(':');
+}
+
+
+
+-9)  Գրել կոդ, որը կտպի այն թվերը 1 -100 միջակայքում, որոնց նիշերի գումարը հավասար է 7
+
+
+Պատասխան՝ 
+
+for(let i=1;i<=100;i++){
+	for(let j=1;j<=100;j++){
+		if(i+j==7){
+			console.log(i,j)
+		}
+	}
+}
+------------------------------------------------------
+krknaki cikl petq cher, cikl@ petq er sksel gone 10-ic, 7 tiv@ mez chi bavararum vorovhetev asvuma nisheri gumar@
+isk 7 1-anish e, gumarman operacya 1 operandov ches kara kazmakerpes
+
+for(let i = 10; i < 100; i++) {
+    const numsSum = String(i).split('').reduce((acc, num) => {
+        acc += Number(num);
+        return acc;
+    }, 0)
+    if(7 === numsSum) {
+    	console.log(i)
+    }
+}
+
+
++10) Գրել ֆունկցիա, որը կտպի ստացված string-ը հակառակ ուղղությամբ։ Չօգտագործել reverse ֆունկցիան
+
+Պատասխան՝ 
+
+function hakarak(string){
+	let rev = string.split('');
+	let arr = [] // stra tex@ karair '' string paheir
+
+	for(let j=rev.length-1; j>=0;j--){
+		arr.push(rev[j]) // estex el arr += rev[j]
+	}
+
+	return arr.join("").toString() // joinic heto tostringi imas chka
+		
+}
+
+console.log(hakarak("narek"))
+
+
+-11)  Գրեք երեք function։ Մեկի անունը sum, որը ստանում է որպես առգումենտ երկու թիվ և գումարում է նրանց։ Երկրորդի անունը subtract,
+որը ստանում է որպես առգումենտ երկու թիվ և հաշվում է նրանց տարբերությունը։ Երրորդ function-ի անունը simpleCalculator է,
+այն ստանում է 5 հատ առգումենտ․ երկու թիվ, + կամ - նշան սթրինգով, sum function-ը և subtract function-ը, օրինակ այս տեսքով՝
+
+simpleCalculator(25, 5, '+', sum, subtract);
+
+Եթե նշանը + է, երկու թվերի համար օգտագործում ենք sum function-ը ու վերադարձնում ենք պատասխանը, հակառակ դեպքում՝
+subtract function-ն ենք օգտագործում ու նույնպես վերադարձնում ենք ստացված արժեքը։
+
+Պատասխան՝
+
+function sum(num1,num2){
+    return num1 + num2
+}
+
+function subtract(num3,num4){
+    return num3 - num4
+}
+
+function simpleCalculator(int1,int2,operator,gum,tarb){
+    int1 =int1 // ??
+    int2 = int2 // ??
+    if(operator==="+"){
+        gum= sum(int1,int2)  // argument ekacin chenq veragrum
+        return gum
+    }else if(operator==="-"){
+        subtract(int1,int2) // ??
+        tarb = subtract(int1,int2) // argument ekacin chenq veragrum
+        return tarb
+    }
+
+}
+
+console.log(simpleCalculator(25, 5, '-', sum, subtract))
+---------------------------------
+function simpleCalculator(a, b, symbol = '-', fn1 = sum, fn2 = subtract) {
+	if(symbol === '+') {
+		return fn1(a, b)
+	}
+	return fn2(a, b);
+}
+
+
+

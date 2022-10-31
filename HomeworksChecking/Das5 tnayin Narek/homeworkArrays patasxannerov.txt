@@ -1,0 +1,209 @@
+-1) Տրված է
+
+const hayk = { name: "Hayk", age: 27, id: '44' };
+const mariam = { name: "Mariam", age: 30, id: '13' };
+const karen = { name: "Karen", age: 28, id: '23' };
+const levon = { name: "Levon", age: 28, id: '909' };
+
+ 
+const users = [hayk, mariam, karen, levon]
+
+Գրեք ֆունկցիա, որը կստանա արգումենտ և կվերադարձնի զանգված user-ների տվյալներից կազմված։ Տվյալները կախված են արգումենտից
+
+(‘name’) => [‘Hayk’, ‘Mariam’, ‘Karen’, ‘Levon’]
+(‘age’) => [27, 30, 28, 28]
+
+
+Պատասխան՝ Մենակ էս չկարեցա վերջնական ստանամ name-եմ գրում age -ներա բերում) ուղեղս հոգնելա երևի, մնացածը սաղ աշխատող են ախպերս)
+
+const hayk = { name: "Hayk", age: 27, id: '44' };
+const mariam = { name: "Mariam", age: 30, id: '13' };
+const karen = { name: "Karen", age: 28, id: '23' };
+const levon = { name: "Levon", age: 28, id: '909' };
+
+ 
+const users = [hayk, mariam, karen, levon]
+
+
+let result = []
+
+function func(key){
+   key = users.key // ??
+	for(let i=0 ;i<users.length;i++){
+   	for (let x in users[i]) {
+      	users[i][key] =users[i][x]
+   	};
+	result.push(users[i][key])
+} 
+
+return result // es function@ 100 angam kanches result-i mej lcnes, zibilanoca darnalu naxord sax kanchi arjeqnerov...
+}
+
+
+console.log(func("name"))
+------------------------------------------------
+function GetFields(field){
+	return users.map(user => user[field])
+}
+
+
+
+
++-2) Գրեք ֆունկցիա,որը գծիկով բառերի առաջին տառը կդարձնի մեծատառ ու գծիկներն էլ կհանի (ete terminerov nayem, espes: kebab-case => camel-case/pascal-case )
+
+(‘background-color’) => ‘backgroundColor’
+(‘-webkit-transition’) => ‘WebkitTransition’
+
+
+Պատասխան՝ մեծ մասը իմ խելքով բայց էլի օգտված դե RegExp-ով էլ կարելիա գրել հեշտ)
+
+let str = "background-color"
+let str2 = "webkit-transition"
+let str3 = "azat-ankax-hayastan "
+let x = "-"
+
+let arr = [] // imast chkar esi ste haytarares
+
+// shat es bardacrel
+function func(text){
+    let mec
+    arr = text.split("")
+    for (var i=arr.length-1; i>=0; i--) {
+        if (arr[i] === x) {
+           arr.splice(i, 1); // bagi buna es splice, ashxati chogtagorces
+           mec=arr[i].toUpperCase()
+           arr.splice(i, 1, mec);
+        }   
+    }
+	 return arr.join("").toString() // joinic heto tostringi imast chka
+}
+
+console.log(func(str))
+console.log(func(str2))
+console.log(func(str3))
+-----------------------------------
+function ToUpperCaseFirstLetter(str) {
+	return str.split('')
+        .map((letter, i, arr) => {
+            if(letter === '-') {
+                return ''
+            }
+            if(arr[i-1] === '-') {
+                return letter.toUpperCase()
+            }
+            return letter
+        })
+        .join('')
+}
+
+
+3) Գրեք ֆունկցիա, որը կստանա զանգված և երկու թիվ և կվերադարձնի զանգվածի այն թվերը, որոնք կլինեն ստացված թվերի միջակայքում
+
+([2, 66, 3, 9], 1, 3) => [2, 3]
+([-32, 6, 31, 0], -10, -99) => [-32]
+
+
+Պատասխան՝ իմ խելքով գրած)
+
+let array = [2, 66, 3, 9]
+let array2 = [-32, 6, 31, 0]
+
+function func(arr,num1,num2){
+	let result = []
+	for(let i=0; i<arr.length; i++){
+		if(arr[i]>=num1 && arr[i]<=num2){
+			result.push(arr[i]);
+		}
+		if(num1<=0 && num2<=0 && arr[i]<=num1 && arr[i]>=num2){
+			result.push(arr[i])
+		}
+	}   
+	return result
+}
+
+
+console.log(func(array,1,3))
+console.log(func(array2,-10,-99))
+-----------------------------------------------
+karair krknaki paymani stugum chgreir cickli mej,
+optimal chi baic ashxatoxa dra hamr chisht em hamarum,
+esel en inch vor uzum ei tesnei
+
+function GetRange(arr,arg1,arg2) {
+    const min = Math.min(arg1, arg2)
+    const max = Math.max(arg1, arg2)
+	return arr.filter(el => el >= min && el <= max)
+}
+
+
+
+
++4) Գրեք ֆունկցիա, որը կստանա երկու զանգված ու կստուգի նրանց, ու եթե նրանք միանման են վերադարձնում է true: Երկու
+զանգվածների էլեմենտները պրիմիտիվ տիպի են
+
+([1, 2, 3], [1, 2, 3]) => true
+
+Պատասխան՝ !!!Օգտված հասկացած every-ն filter -ի նմանա աշխատում բայց տալիսա true կամ false, բայց եթե մի հատ false քթավ թեկուզ վերջում տալիսա false
+
+let array = [1,2,3]
+let array2 = [1,2,3]
+
+function func(first,second){
+    let isEqual = first.length === second.length &&
+    first.every((value, index) => value === second[index])
+
+console.log(isEqual);
+}
+
+func(array,array2)
+
+
+
++5) Գրեք ֆունկցիա, որը բազմաչափ (многомерный) զանգվածից կսարքի միաչափ (одномерный)
+
+[1, 2, [3, 4, [5, [3]]]] => [1, 2, 3, 4, 5]
+
+
+Պատասխան՝ օգտվել եմ լրիվ հասկացած
+
+let  arr = [1, 2, [3, 4, [5, [3]]]]
+
+function func(array) {
+	let res=[];
+	/* python-i pes mi gri {} dir gone mi te :) */
+	for (let i=0; i<array.length; i++)
+		if (!Array.isArray(array[i]))
+			res.push(array[i]);
+		else
+			res=res.concat(func(array[i]));
+	return res.sort(); // sort petq cher
+}
+console.log(func(arr));
+---------------------------
+esenc chishta, chgidem gides te che zangvaci vra flat method ka array.flat(Infinity) u vseo, harc@ lucvum er :)
+
+
+
++6) Գրեք ֆունկցիա, որը բաժանում է արգումենտով ստացված զանգվածը տրված երկարության զանգվածների։ Երկարությունը ստանում է
+երկրորդ արգումենտով։
+
+([1, 2, 3, 4, 5], 2) => [[1, 2], [3, 4], [5]]
+
+
+
+Պատասխան՝ օգտվել եմ լրիվ հասկացած
+
+const arr = [1, 2, 3, 4, 5]; 
+
+function func(array,num){
+let size = num
+let result = [];
+
+for (let i = 0; i <array.length; i+=size) {
+    result.push(array.slice(i, i + size));
+}
+return  result 
+}
+console.log(func(arr, 2));
+
+
