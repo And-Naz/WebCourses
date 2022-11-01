@@ -1,0 +1,55 @@
+1) գրեք Book կլասս, որի էկզեմպլյառները կունենան author և title property-ներ, ու getTitle ու getAuthor մեթոդները,
+որոնք կվերադարձնեն author և title property-ները այս տեսքով ՝ 'Title: ....', 'Author: ...':
+
+Օրինակ՝ Harry Potter գիրքը ստեղծենք HP անունով որ լինի այսպես
+HP.title => "Harry Potter"
+HP.author => "J.K. Rowling"
+HP.getTitle() => "Title: Harry Potter"
+HP.getAuthor() => "Author: J.K. Rowling"
+
+2) գրեք Calculator կլասս, որը կունենա add, subtract, multiply ու divide մեթոդները։ Օրինակ՝
+
+class Calculator {
+   // ձեր կոդը
+}
+const calculator = new Calculator()
+// calculator.add(10, 5) => 15
+
+3) Տրված է 3 օբյեկտ
+
+const obj1 = Object.create(null);
+const obj2 = Object.create({});
+const obj3 = Object.create(Object.prototype);
+
+բացատրեք իրենց տարբերությունը։ Ինչ կլինի եթե նրանց վրա կանչենք toString մեթոդ, բացատրեք ինչու
+
+4) Ինչ կտպվի կոնսոլում կոդը աշխատելուց հետո և ինչու
+
+console.log({}.prototype === Object.getPrototypeOf({}));
+
+function Builder() {}
+console.log(Builder.prototype === Object.getPrototypeOf(Builder));
+
+function Worker() {}
+console.log(Builder.prototype === Worker.prototype);
+
+const age = 27
+console.log(age.prototype === Number.prototype);
+console.log(Object.getPrototypeOf(age) === Number.prototype);
+
+const man = new Builder()
+console.log(Object.getPrototypeOf(man) === Builder.prototype);
+
+class HouseBuilder extends Builder{}
+const otherMan = new HouseBuilder();
+console.log(Object.getPrototypeOf(otherMan) === Builder);
+console.log(otherMan.constructor === Builder);
+console.log(otherMan.constructor === HouseBuilder);
+
+console.log(Object.getPrototypeOf(HouseBuilder))
+
+5) Գրեք երկու կլասս Warriors ու Wizards, որոնք կժառանգեն 1 կլասսից Fighters։
+Warriors ու Wizards կլասսերում պետք է լինեն նմանատիպ property-ներ էկզեմպլյառներին տրվող,
+healthPoints, damage, stamina (սահմանափակվում է ձեր ֆանտազիայով :D)
+Նաև պետք է լինեն տարբեր մեթոդներ երկու կլասսերում հարվածներ հասցնելու, կյանքեր վերականգնելու և պաշտպանվելու համար։
+Առաջադրանքը ազատ ոճի մեջ է, ամեն ինչ կախված է ձեր ռեալիզացիայից, սահմանափակումներ չկան

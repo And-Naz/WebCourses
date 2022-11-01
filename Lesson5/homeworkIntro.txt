@@ -1,0 +1,74 @@
+1) WHAT WILL BE THE OUTPUT AND WHY?
+
+const a = 'Hello!';
+const b = null;
+const c = +a + b + 99;
+console.log(c);
+console.log(!c);
+
+2) Գրել ֆունկցիա, որը 2 առգումենտ է ստանում, string և number, և ստուգում է, եթե string-ի երկարությունը հավասար է number-ի,
+ապա վերադարձնում է true, հակառակ դեպքում՝ false։
+
+3) WHAT WILL BE THE OUTPUT AND WHY?
+
+let a = 3;
+if(!a) {
+   console.log('first one');
+} else if(!a - a) { 
+   console.log('second one');
+} else if(a - !!a) {
+   console.log('third one');
+}
+if(!!a && a - !a === 3) {
+   console.log('fourth one');
+}
+
+4) Գրել ֆունկցիա, որը կվերածի ստացած number տիպի առգումենտը տասնորդական համակարգի թվից երկուական համակարգի թվի (չօգտագործել toString մեթոդը)։
+
+5) WHAT WILL BE THE OUTPUT AND WHY?
+
+let a = (!!null && 'second wave' + String(NaN)) || null == 0 ? '5 + 1' : `5 - ${true}`;
+console.log(a);
+
+6)  Գրել կոդը switch case - ով
+
+let lang = 'ru';
+if (lang === 'en') {
+   console.log('english')
+} else if (lang === 'hy') {
+   console.log('armenian')
+} else if (lang === 'ru') {
+   console.log('russian')
+} else if (lang === 'hy') {
+   console.log('es')
+} else if (lang === 'fr') {
+   console.log('french')
+} else if (lang === 'it') {
+   console.log('italian')
+}
+
+7)  WHAT WILL BE THE OUTPUT AND WHY?
+const number = Boolean('true');
+const boolean = String(true);
+const string = Number(true);
+const object = Number('true');
+const sum = number + string + object;
+console.log(number, boolean, string, object, sum);
+
+8) Գրել ֆունկցիա, որը կստանա վարկյաններ ու կվերադարձնի ժամ։րոպե։վարկյան
+
+9)  Գրել կոդ, որը կտպի այն թվերը 1 -100 միջակայքում, որոնց նիշերի գումարը հավասար է 7
+
+10) Գրել ֆունկցիա, որը կտպի ստացված string-ը հակառակ ուղղությամբ։ Չօգտագործել reverse ֆունկցիան
+
+11)  Գրեք երեք function։ Մեկի անունը sum, որը ստանում է որպես առգումենտ երկու թիվ և գումարում է նրանց։ Երկրորդի անունը subtract,
+որը ստանում է որպես առգումենտ երկու թիվ և հաշվում է նրանց տարբերությունը։ Երրորդ function-ի անունը simpleCalculator է,
+այն ստանում է 5 հատ առգումենտ․ երկու թիվ, + կամ - նշան սթրինգով, sum function-ը և subtract function-ը, օրինակ այս տեսքով՝
+
+simpleCalculator(25, 5, '+', sum, subtract);
+
+Եթե նշանը + է, երկու թվերի համար օգտագործում ենք sum function-ը ու վերադարձնում ենք պատասխանը, հակառակ դեպքում՝
+subtract function-ն ենք օգտագործում ու նույնպես վերադարձնում ենք ստացված արժեքը։
+
+
+
