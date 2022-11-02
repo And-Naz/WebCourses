@@ -46,6 +46,13 @@ function GetFields(field){
 	return users.map(user => user[field])
 }
 
+function GetFields1(field){
+	const resultArray = [];
+	for(let i = 0; i < users.length; i++) {
+		resultArray.push(user[i][field])
+	}
+	return resultArray;
+}
 
 
 
