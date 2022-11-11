@@ -373,23 +373,26 @@ function slice(arr = [], start = 0, end = arr.length /* aranc  - 1 */) {
 
 
 // 15. Պատասխան՝ fill qo grac slice-ic ogtvelov grel em menaki ban cher)
-// sxal argumentner en
-function fill(arr = [], value /* , start = 0, end = arr.length - 1*/) {
+
+function fill(arr = [], value, start = 0, end = arr.length) {
 	// animast popoxakan
-	// let result = []
+	// let result = [];
 
 	// anhaskanali kod
-	// for (let i = 0; i < arr.length; i++) {
-	// 	if (i >= start && i <= end)
-	// 		arr[i] = value
-	// 	result.push(arr[i])
-	// } arr.length = 0
+	for (let i = 0; i < arr.length; i++) {
+		if (i >= start && i < end) {
+			arr[i] = value;
+		}
+
+		// result.push(arr[i]);
+	}
+	// arr.length = 0;
 	// for (let i = 0; i < result.length; i++) {
 	// 	arr.push(result[i])
 	// }
-	for (let i = 0; i < arr.length; i++) {
-		arr[i] = value;
-	}
+	// for (let i = 0; i < arr.length; i++) {
+	// 	arr[i] = value;
+	// }
 	return arr
 }
 
@@ -423,6 +426,7 @@ function fill(arr = [], value /* , start = 0, end = arr.length - 1*/) {
 function flat(array, arg = 1) {
 	const res = []; // xi let?
 	let innerSize = 1;
+	
 	(function (innerArray) {
 		for (let i = 0; i < innerArray.length; i++) {
 			if (!Array.isArray(innerArray[i])) {
@@ -437,6 +441,7 @@ function flat(array, arg = 1) {
 			}
 		}
 	})(array);
+
 	// sxala
 	// for (let i = 0; i < array.length; i++) {
 	// 	if (!Array.isArray(array[i])) {
