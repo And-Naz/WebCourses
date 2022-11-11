@@ -4,7 +4,7 @@
 // Պատասխան 1,2 
 
 function CustomArray() {
-	let arr = []
+	const arr = []; // xi let?
 	if (arguments.length === 1) {
 		arr.length = arguments[0]
 	}
@@ -316,7 +316,7 @@ function join(array, arg = ',') {
 // 13․ Պատասխան՝ includes սա ոնցոր callback չուներ դակումենտացիաի մեջ գրած
 // flag em gre vor falsi vaxt undefined chta gri false
 
-
+// xi func? includes
 function func(array, arg) {
 	// animast popoxakan
 	// let flag = false
