@@ -97,38 +97,163 @@
 */
 
 
-let length = 10;
-const arrow1 = () => console.log(this.length);
-function declaration () { console.log(this.length); }
-const obj = {
-	length: 20,
-	arrowObj: arrow1,
-	declarationObj: declaration,
-	func1: () => {
-		console.log(this.length)
-	},
-	func2 () {
-		console.log(this.length)
-	},
-	func3 (fn) {
-		fn(); // declaration()
-	},
-	func4 () {
-		// console.log(arguments);
+// let length = 10;
+// const arrow1 = () => console.log(this.length);
+// function declaration () { console.log(this.length); }
+// const obj = {
+// 	length: 20,
+// 	arrowObj: arrow1,
+// 	declarationObj: declaration,
+// 	func1: () => {
+// 		console.log(this.length)
+// 	},
+// 	func2 () {
+// 		console.log(this.length)
+// 	},
+// 	func3 (fn) {
+// 		fn(); // declaration()
+// 	},
+// 	func4 () {
+// 		// console.log(arguments);
 
-		// const innerObj = {0: 0, length: 1, declaration }
+// 		// const innerObj = {0: 0, length: 1, declaration }
 
-		// innerObj.declaration();
+// 		// innerObj.declaration();
 		
-		arguments[0](); // arguments.0(); arguments.funcName()
+// 		arguments[0](); // arguments.0(); arguments.funcName()
+// 	}
+// }
+
+// arrow1();							// undefined || error , 0
+// declaration();						// 10 , 10
+// obj.arrowObj();					// 10 , 10
+// obj.declarationObj();			// 10 , 20
+// obj.func1();						// undefined || error , 0
+// obj.func2();						// 10 , 20
+// obj.func3(declaration, null);	// 10 , 10
+// obj.func4(declaration,  5000 /*,  10, null, undefined*/);	// 10 , undefined
+
+
+// bind, call, apply
+
+// function func() {
+// 	console.log(this);
+// 	// console.log(arguments)
+// }
+
+// func();
+
+// console.log("------------------------------------")
+
+// Bind
+// console.log("Bind: ")
+// const bindedNewFunction = func.bind(1, 5, 2, 3, 4);
+// console.log(typeof bindedNewFunction)
+// bindedNewFunction()
+// const obj = {
+// 	id: 10000,
+// 	name: 'John'
+// 	// method: bindedNewFunction
+// }
+
+// // obj.method(10, 12, 20, 30)
+
+// console.dir(bindedNewFunction)
+
+// console.log("new: ", new bindedNewFunction())
+
+// call
+// function getOne() {
+// 	console.log(this);
+// 	return 10000000000000000;
+// }
+// console.log("------------------------------------")
+// console.log("Call: ")
+// const calledNewFunction = getOne.call(NaN);
+// console.log(typeof calledNewFunction)
+// console.log("calledNewFunction: ", calledNewFunction)
+
+// Apply
+
+// const appliedNewFunction = func.apply(obj, [0,1,2,3])
+
+// var _this = this;
+// const arrowFn = () => console.log(_this);
+// arrowFn()
+
+// function MyArrowFN(params) {
+// 	console.log(this)
+// }
+
+// var myArrow = MyArrowFN.bind(_this)
+// arrowFn => myArrow
+
+
+function ForCreateScope() {
+	// scope
+	let i = 0;
+
+	function ClosuredFunction() {
+		// closured place
+		console.log(i)
+		return i
 	}
+
+	return ClosuredFunction;
 }
 
-arrow1();							// undefined || error , 0
-declaration();						// 10 , 10
-obj.arrowObj();					// 10 , 10
-obj.declarationObj();			// 10 , 20
-obj.func1();						// undefined || error , 0
-obj.func2();						// 10 , 20
-obj.func3(declaration, null);	// 10 , 10
-obj.func4(declaration,  5000 /*,  10, null, undefined*/);	// 10 , undefined
+const closureFn = ForCreateScope()
+
+// closureFn();
+
+// increment() // 1, 2, 3
+// decrement() // 2, 1, 0
+
+
+function CreateCounter() {
+	// scope
+	let counter = 0;
+
+	function increment() {
+		// closured place
+		console.log(counter++)
+	}
+
+	function decrement() {
+		// closured place
+		console.log(counter--)
+	}
+
+	return {increment, decrement}
+}
+
+// const obj = CreateCounter();
+
+// const increment = obj.increment;
+// const decrement = obj.decrement;
+
+// increment()
+// increment()
+// increment()
+
+// decrement()
+// decrement()
+// decrement()
+
+// scope
+let counter = 0;
+
+function increment() {
+	// closured place
+	console.log(counter++)
+}
+
+function decrement() {
+	// closured place
+	console.log(counter--)
+}
+
+// return {increment, decrement}
+export default {
+	increment, decrement
+}
