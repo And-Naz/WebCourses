@@ -1,92 +1,79 @@
-const game = {
-	col: null,
-	row: null,
-	_x: "X",
-	_o: "O",
-	_isInited: false,
-	_winCombinations: [],
-	state: [],
-};
+class TikTakToe {
+	col = null;
+	row = null;
+	_x = "X";
+	_o = "O";
+	_isInited = false;
+	_winCombinations = [];
+	state = [];
 
-Object.setPrototypeOf(game, { drow, x, o, display, calcWin, init, _makeArray })
+	constructor(col, row) {
+		this.col = col;
+		this.row = row;
+	}
 
+	x(row, col) { this.drow(row, col, this._x); }
+	o(row, col) { this.drow(row, col, this._o); }
 
-game.init();
+	drow(row, col, symbol) {
+		if (!this._isInited) { return; }
+		if (!this.state[row - 1][col - 1]) {
+			this.state[row - 1][col - 1] = symbol;
+		};
+		this.display();
+		this.calcWin();
+	}
 
-console.log(game)
+	display() {
+		console.clear();
+		this.state.forEach((rowData) => {
+			console.log(...rowData);
+		});
+	}
 
+	_makeArray(length, mapFn = () => null) {
+		return Array.from({ length }, mapFn)
+	}
 
-function drow(row, col, symbol) {
-	if (!this._isInited) { return; }
-	if (!this.state[row - 1][col - 1]) {
-		this.state[row - 1][col - 1] = symbol;
-	};
-	this.display();
-	this.calcWin();
-}
-
-function x(row, col) {
-	this.drow(row, col, this._x);
-}
-
-function o(row, col) {
-	this.drow(row, col, this._o);
-}
-
-function display() {
-	console.clear();
-	this.state.forEach((rowData) => {
-		console.log(...rowData);
-	});
-}
-
-function calcWin() {
-	if (!this._isInited) { return; }
-	const symbolArray = [this._x, this._o];
-
-	for (let i = 0; i < symbolArray.length; i++) {
-		
-		for (let j = 0; j < this._winCombinations.length; j++) {
-	
-			const combination = this._winCombinations[j];
-			for (let z = 0; z < combination.length; z++) {
-	
-				if (combination.every(([x, y]) => symbolArray[i] === this.state[x - 1][y - 1])) {
-					return console.log(symbolArray[i] + " is win!");
-				}
-			}
-			
+	calcWin() {
+		if (!this._isInited) { return; }
+		const retVal = [this._x, this._o]
+			.find(symbol => {
+				return (
+					this._winCombinations
+						.some(combination => {
+							return (
+								combination
+									.every(combRowCol => {
+										const [row, col] = combRowCol;
+										return symbol === this.state[row - 1][col - 1];
+									})
+							)
+						})
+				)
+			})
+		if (retVal) {
+			console.log(retVal + " is win!");
 		}
-		
-		
+	}
+
+	init() {
+		this.state = this._makeArray(this.row, () => this._makeArray(this.col, () => null));
+		this._isInited = true;
+		this._winCombinations = [
+			...this._makeArray(this.row, (_, i) => this._makeArray(this.col, (_, j) => [i+1, j+1])),
+			...this._makeArray(this.col, (_, i) => this._makeArray(this.row, (_, j) => [j+1, i+1]))
+		];
+		if (this.row === this.col) {
+			for (let i = 0; i < this.row; i++) {
+				this._winCombinations.push(
+					this._makeArray(this.row, (_, z) => [z+1, z+1])
+				);
+			}
+		}
+		this.display();
 	}
 }
 
-function init(row = 3, col = 3) {
-	this.row = row;
-	this.col = col;
-	this.state = this._makeArray(this.row, () => this._makeArray(this.col, () => null));
-	this._isInited = true;
-	this._winCombinations = [
-		[ [1,1], [1,2], [1,3] ],
-		[ [2,1], [2,2], [2,3] ],
-		[ [3,1], [3,2], [3,3] ],
-
-		[ [1,1], [2,1], [3,1] ],
-		[ [1,2], [2,2], [3,2] ],
-		[ [1,3], [2,3], [3,3] ],
-	];
-	if (this.row === col) {
-		this._winCombinations.push(
-			[ [1,1], [2,2], [3,3] ]
-		);
-		this._winCombinations.push(
-			[ [3,3], [2,2], [1,1] ]
-		)
-	}
-	this.display();
-}
-
-function _makeArray(length, mapFn = () => null) {
-	return Array.from({ length }, mapFn)
-}
+const game = new TikTakToe(9,9)
+game.init()
