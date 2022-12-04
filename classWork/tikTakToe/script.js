@@ -7,18 +7,20 @@ class TikTakToe {
 	_winCombinations = [];
 	state = [];
 
-	constructor(col, row) {
+	constructor(row, col) {
 		this.col = col;
 		this.row = row;
 	}
 
-	x(row, col) { this.drow(row, col, this._x); }
-	o(row, col) { this.drow(row, col, this._o); }
+	x(row, col) { this.drow(row, col, this._x /* "X" */); }
+	o(row, col) { this.drow(row, col, this._o /* "O" */); }
 
-	drow(row, col, symbol) {
+	drow(row, col, character) {
 		if (!this._isInited) { return; }
 		if (!this.state[row - 1][col - 1]) {
-			this.state[row - 1][col - 1] = symbol;
+			this.state[row - 1][col - 1] = character;
+		} else {
+			alert("Chikareli")
 		};
 		this.display();
 		this.calcWin();
@@ -65,15 +67,23 @@ class TikTakToe {
 			...this._makeArray(this.col, (_, i) => this._makeArray(this.row, (_, j) => [j+1, i+1]))
 		];
 		if (this.row === this.col) {
-			for (let i = 0; i < this.row; i++) {
-				this._winCombinations.push(
-					this._makeArray(this.row, (_, z) => [z+1, z+1])
-				);
-			}
+			this._winCombinations.push(
+				this._makeArray(this.row, (_, z) => [z+1, z+1]) /* 1,1 - 2,2 - 3,3 */
+			);
+
+			this._winCombinations.push(
+				this._makeArray(this.row, (_, z) => [z + 1, this.row - z])
+			);
+
+			/* row = 3
+				1) z = 0, [ 0 + 1, 3 - 0 ] => [1, 3]
+				1) z = 1, [ 1 + 1, 3 - 1 ] => [2, 2]
+				1) z = 2, [ 2 + 1, 3 - 2 ] => [3, 1]
+			*/
 		}
 		this.display();
 	}
 }
 
-const game = new TikTakToe(9,9)
+const game = new TikTakToe(3, 3)
 game.init()
