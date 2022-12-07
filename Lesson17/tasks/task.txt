@@ -1,0 +1,27 @@
+Stexcel memori game
+
+1. game-i mej petq e lini 4 syun, 5 tox, 20 nkar.
+2. design-@ vercnel nkarneric, anel maximal nman,
+neonayin luysi effectner@ partadir en.
+3. anhrazhesht nkarner@ "assets" folderi mej en.
+
+game-i flow-n
+
+erb xax@ load-vum e, bolorcard-er@ bac petq e linen
+mot 1 varkyan jamanakahatvacum (nkar 1), aynuhetyev
+petq e pagven (nkar 2). Ete cankacac pak nkari vra
+hover anenq, ayn petq e mecana, mgana yev lusayin
+stver unena (nkar 3), erb click anen nra vra ayn
+petq e bacvi, cuyc ta te inj nkar er pahvum hetyevum
+u chkorcni chaper@ yev lusayin effect@ (nkar 4), isk
+heto ete click anenq urish card-i vra u yete nra
+hetyevum nuyn nkarn e (nkar 5) apa ayd erku card-er@
+bac kmnan, yev irenc pes mnacac bolor@ (nkar 6), isk
+ete bacvi urish nkarov card (nkar 7) apa kes varkyan
+heto ayd verji 2 card-er@ petq e pakven, baic petq e
+hishel ete card@ bacvel e yev 2 varkyani @ntacqum
+click chi arvel urish card-i vra apa ayn avtomat
+kpagvi. Erb lini aynpisi vichak vor verji zuygn e
+mnacel bacelun (nkar 8) apa dranc bacveluc heto
+eji vra grvum e "You Win!" (nkar 9).
+
