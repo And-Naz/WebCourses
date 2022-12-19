@@ -1,7 +1,7 @@
 // Constant variables
 const baseImagesArr = ['0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg'],
 	origImagesCount = baseImagesArr.length
-baseImagesDirPathForJs = '../images',
+	baseImagesDirPathForJs = '../images',
 	baseImagesDirPathForHtml = 'images';
 
 // Basics functions
@@ -9,16 +9,16 @@ const elementFastCreator = (elem, classes) => {
 	let e = $(elem)
 	e.addClass(classes)
 	return e
-},
-	suffle = (arr) => {
-		for (let i = 0; i < arr.length; i++) {
-			let j = Math.floor(Math.random() * arr.length)
-			let tmp = arr[i]
-			arr[i] = arr[j]
-			arr[j] = tmp
-		}
-		return arr
-	};
+}
+const suffle = (arr) => {
+	for (let i = 0; i < arr.length; i++) {
+		let j = Math.floor(Math.random() * arr.length)
+		let tmp = arr[i]
+		arr[i] = arr[j]
+		arr[j] = tmp
+	}
+	return arr
+};
 
 // Flags
 let rectangleAlreadyClicked = false,
