@@ -7,15 +7,16 @@ const btn = document.getElementById('btn')
 // PUT // tex@ urish ban dnes
 
 btn.addEventListener('click', () => {
+	const display = document.getElementById('display')
+	const toUl = children => `<ul>${children}</ul>`;
+	const toLi = user => `<li>${user.id}) ${user.name}</li>`
+
 	const serverUrl = "https://jsonplaceholder.typicode.com/users";
 	const method = "GET";
 	const xhr = new XMLHttpRequest();
 	xhr.open(method, serverUrl, true)
 	xhr.onload = () => {
 		const usersArray = JSON.parse(xhr.responseText)
-		const display = document.getElementById('display')
-		const toUl = children => `<ul>${children}</ul>`
-		const toLi = user => `<li>${user.id}) ${user.name}</li>`
 		const children = usersArray.reduce((acc, user) => {
 			return acc + toLi(user);
 		}, "")
