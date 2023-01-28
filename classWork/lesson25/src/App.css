@@ -1,0 +1,65 @@
+body {
+  background-color: #EEF6FE
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  padding: 4%;
+  margin: auto;
+}
+
+
+form {
+  color: white;
+  font-size: 100%;
+  background-color: #263854;
+  border-radius: 2%;
+  padding: 2.5%;
+  align-items: center;
+  width: 350px;
+}
+
+
+h2 {
+  color: #F0F0F0
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #D8D8D8;
+  font-family: cursive;
+}
+
+label>input {
+  width: 230px;
+  margin-top: 2px;
+  height: 18px;
+  border-radius: 5%;
+  background-color: #C8CCD2;
+  border-collapse: collapse;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  width: 100%;
+}
+
+
+.btns>input {
+  width: 33%;
+  height: 27px;
+  color: whitesmoke;
+  font-weight: bold;
+  background-color: #10002F;
+  font-size: 15px;
+}
+
+.Company {
+  margin-top: 40px;
+}
