@@ -1,0 +1,99 @@
+.flex {
+	display: flex;
+	
+	&-col {
+		flex-direction: column;
+	}
+
+	&-row {
+		flex-direction: row;
+	}
+
+	&-equal {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 50%;
+	}
+
+	&-justify {
+		&-center {
+			justify-content: center;
+		}
+		&-between {
+			justify-content: space-between;
+		}
+		&-around {
+			justify-content: space-around;
+		}
+		&-start {
+			justify-content: flex-start;
+		}
+		&-end {
+			justify-content: flex-end;
+		}
+	}
+
+	&-align {
+		&-center {
+			align-items: center;
+		}
+		&-stretch {
+			align-items: stretch;
+		}
+		&-baseline {
+			align-items: baseline;
+		}
+		&-start {
+			align-items: flex-start;
+		}
+		&-end {
+			align-items: flex-end;
+		}
+	}
+}
+
+.header {
+	background-color: aliceblue;
+	&__navigation {
+		&__list {
+			list-style-type: none
+		}
+
+		&__element > &__button {
+			background-color: teal;
+			color: yellowgreen;
+			font-size: 16px;
+		}
+
+		&__element-active > &__button {
+			background-color: yellowgreen;
+			color: white;
+		}
+
+		&__element:not(&__element-active) > &__button:hover {
+			background-color: white;
+			color: black;
+			cursor: pointer;
+		} 
+
+		&__element + &__element {
+			margin-left: 10px;
+		}
+	}
+}
+
+
+
+
+
+
+$spaces: (2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 50);
+@each $space in $spaces {
+	@each $prop, $abbrev in (margin: m, padding: p) {
+		@each $side, $infix in (top: t, bottom: b, left: l, right: r) {
+			.#{$abbrev}#{$infix}-#{$space} {
+				#{$prop}-#{$side}: #{$space}px;
+			}
+		}
+	}
+}
