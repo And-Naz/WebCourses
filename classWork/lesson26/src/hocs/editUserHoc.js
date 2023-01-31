@@ -1,8 +1,8 @@
 import useSelector from "../hooks/useSelector"
 import useDispatcher from "../hooks/useDispatcher"
 import { useEffect, useReducer } from "react";
-import { reducer } from "./editUserHocStor";
-import { deepCopy } from "../utils"
+import { updateUser } from "../stores/main"
+import { reducer, fullUpdate, updateName, updateEmail, updateCompany, updateAddress } from "../stores/editUseStor";
 
 
 const EditUserHoc = (Component) => {
@@ -12,7 +12,24 @@ const EditUserHoc = (Component) => {
 		const currentUserId = useSelector(state => state.currentUserId);
 		const users = useSelector(state => state.users);
 		const currentUser = users.find(user => user.id === currentUserId);
-		const [editUser, dispatch] = useReducer(reducer, deepCopy(currentUser))
+		const mainDispatcher = useDispatcher();
+		const [editUser, dispatch] = useReducer(reducer, null)
+
+		const onSubmit = (e) => {
+			e.stopPropagation();
+			e.preventDefault();
+			mainDispatcher(updateUser(editUser))
+		}
+
+		const onReset = (e) => {
+			e.stopPropagation();
+			e.preventDefault();
+			dispatch(fullUpdate(currentUser))
+		}
+
+		useEffect(() => {
+			dispatch(fullUpdate(currentUser))
+		}, [currentUser])
 		
 		if (!editUser) {
 			return null
@@ -25,7 +42,9 @@ const EditUserHoc = (Component) => {
 				type: "text",
 				value: editUser.name,
 				handlers: {
-					onChange: Function.prototype
+					onChange: (e) => {
+						dispatch(updateName(e.target.value))
+					}
 				}
 			},
 			{
@@ -34,7 +53,9 @@ const EditUserHoc = (Component) => {
 				type: "email",
 				value: editUser.email,
 				handlers: {
-					onChange: Function.prototype
+					onChange: (e) => {
+						dispatch(updateEmail(e.target.value))
+					}
 				}
 			},
 			{
@@ -43,7 +64,9 @@ const EditUserHoc = (Component) => {
 				type: "text",
 				value: editUser.address.street,
 				handlers: {
-					onChange: Function.prototype
+					onChange: (e) => {
+						dispatch(updateAddress(e.target.value))
+					}
 				}
 			},
 			{
@@ -52,7 +75,9 @@ const EditUserHoc = (Component) => {
 				type: "text",
 				value: editUser.company.name,
 				handlers: {
-					onChange: Function.prototype
+					onChange: (e) => {
+						dispatch(updateCompany(e.target.value))
+					}
 				}
 			}
 		]
@@ -62,9 +87,9 @@ const EditUserHoc = (Component) => {
 			<Component
 				inputConfigList={inputConfigList}
 				onSubmitText="Submit"
-				onSubmitClick={Function.prototype}
+				onSubmit={onSubmit}
 				onResetText="Reset"
-				onResetClick={Function.prototype}
+				onReset={onReset}
 			/>
 		)
 	}

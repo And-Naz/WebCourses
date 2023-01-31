@@ -1,6 +1,6 @@
 import useDispatcher from "./hooks/useDispatcher";
 import useSelector from "./hooks/useSelector"
-import { setUserCurrentId } from "./store";
+import { setUserCurrentId } from "./stores/main";
 
 const UserNavigation = () => {
 	const users = useSelector((state)=> state.users);

@@ -1,13 +1,13 @@
 function UserForm ({
 	inputConfigList = [],
 	onSubmitText ="Submit",
-	onSubmitClick = Function.prototype,
+	onSubmit = Function.prototype,
 	onResetText = "Reset",
-	onResetClick = Function.prototype
+	onReset = Function.prototype
 }) {
 	return (
 		<div className="form-wrapper">
-			<form>
+			<form onSubmit={onSubmit} onReset={onReset} >
 				<div className="form-container">
 					{
 						inputConfigList.map((inputConfig) => {
@@ -21,6 +21,8 @@ function UserForm ({
 											type={inputConfig.type}
 											name={inputConfig.name}
 											value={inputConfig.value}
+											defaultValue={inputConfig.defaultValue}
+											defaultChecked={inputConfig.defaultChecked}
 											{...inputConfig.handlers}
 										/>
 									</label>
@@ -33,13 +35,11 @@ function UserForm ({
 							type='submit'
 							name='submit'
 							value={onSubmitText}
-							onClick={onSubmitClick}
 						/>
 						<input
 							type='reset'
 							name='reset'
 							value={onResetText}
-							onClick={onResetClick}
 						/>
 					</div>
 				</div>

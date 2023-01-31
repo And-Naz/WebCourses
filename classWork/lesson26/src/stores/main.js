@@ -10,6 +10,7 @@ const LOADING_TRUE = "LOADING_TRUE";
 const LOADING_FALSE = "LOADING_FALSE";
 const SET_CURRENT_USER_ID = "SET_CURRENT_USER_ID";
 const SET_ERROR = "SET_ERROR";
+const UPDATE_USER = "UPDATE_USER";
 
 
 export function reducer(state, action) {
@@ -39,6 +40,34 @@ export function reducer(state, action) {
 				...state,
 				error: action.payload
 			}
+		case UPDATE_USER:
+			return {
+				...state,
+				users: state.users.map(user => {
+					if (user.id !== action.payload.id) {
+						return user;
+					}
+					return {
+						...user,
+						...action.payload,
+						company: {
+							...(
+								action.payload.company ? action.payload.company : user.company
+							)
+						},
+						address: {
+							...(
+								action.payload.address ? action.payload.address : user.address
+							),
+							geo: {
+								...(
+									(action.payload?.address?.geo) ? action.payload.address.geo : user.address.geo
+								)
+							}
+						}
+					}
+				})
+			}
 		default:
 			return state
 	}
@@ -67,4 +96,9 @@ export const setUserCurrentId = (userId) => ({
 export const setError = (error) => ({
 	type: SET_ERROR,
 	payload: error
+})
+
+export const updateUser = (user) => ({
+	type: UPDATE_USER,
+	payload: user
 })

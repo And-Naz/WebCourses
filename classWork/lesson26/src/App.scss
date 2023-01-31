@@ -1,85 +1,79 @@
 .flex {
 	display: flex;
-	
-	&-col {
-		flex-direction: column;
-	}
-
-	&-row {
-		flex-direction: row;
-	}
-
-	&-equal {
-		flex-grow: 1;
-		flex-shrink: 1;
-		flex-basis: 50%;
-	}
-
-	&-justify {
-		&-center {
-			justify-content: center;
-		}
-		&-between {
-			justify-content: space-between;
-		}
-		&-around {
-			justify-content: space-around;
-		}
-		&-start {
-			justify-content: flex-start;
-		}
-		&-end {
-			justify-content: flex-end;
-		}
-	}
-
-	&-align {
-		&-center {
-			align-items: center;
-		}
-		&-stretch {
-			align-items: stretch;
-		}
-		&-baseline {
-			align-items: baseline;
-		}
-		&-start {
-			align-items: flex-start;
-		}
-		&-end {
-			align-items: flex-end;
-		}
-	}
+}
+.flex-col {
+	flex-direction: column;
+}
+.flex-row {
+	flex-direction: row;
+}
+.flex-equal {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 50%;
+}
+.flex-justify-center {
+	justify-content: center;
+}
+.flex-justify-between {
+	justify-content: space-between;
+}
+.flex-justify-around {
+	justify-content: space-around;
+}
+.flex-justify-start {
+	justify-content: flex-start;
+}
+.flex-justify-end {
+	justify-content: flex-end;
+}
+.flex-align-center {
+	align-items: center;
+}
+.flex-align-stretch {
+	align-items: stretch;
+}
+.flex-align-baseline {
+	align-items: baseline;
+}
+.flex-align-start {
+	align-items: flex-start;
+}
+.flex-align-end {
+	align-items: flex-end;
 }
 
 .header {
 	background-color: aliceblue;
-	&__navigation {
-		&__list {
-			list-style-type: none
-		}
+}
 
-		&__element > &__button {
-			background-color: teal;
-			color: yellowgreen;
-			font-size: 16px;
-		}
+.header__navigation {
 
-		&__element-active > &__button {
-			background-color: yellowgreen;
-			color: white;
-		}
+}
 
-		&__element:not(&__element-active) > &__button:hover {
-			background-color: white;
-			color: black;
-			cursor: pointer;
-		} 
+.header__navigation__list {
+	list-style-type: none
+}
 
-		&__element + &__element {
-			margin-left: 10px;
-		}
-	}
+.header__navigation__element > .header__navigation__button {
+	background-color: teal;
+	color: yellowgreen;
+	font-size: 16px;
+}
+
+.header__navigation__element-active > .header__navigation__button {
+	background-color: yellowgreen;
+	color: white;
+}
+
+.header__navigation__element:not(.header__navigation__element-active) > .header__navigation__button:hover {
+	background-color: white;
+	color: black;
+	cursor: pointer;
+} 
+
+.header__navigation__element + .header__navigation__element {
+	margin-left: 10px;
 }
 
 
