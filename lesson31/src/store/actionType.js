@@ -1,0 +1,2 @@
+export const SET_HOME_TEXT = "SET_HOME_TEXT";
+export const SET_CONTACTS_USERS = "SET_CONTACTS_USERS";
