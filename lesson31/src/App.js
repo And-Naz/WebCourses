@@ -1,76 +1,35 @@
-import React, { useState } from 'react';
-import { Provider } from "react-redux"
-import configStore from "./store/configStore";
-import './App.css';
-
-const Home = React.lazy(() => import("./Home"));
-const About = React.lazy(() => import("./About"));
-const Contact = React.lazy(() => import("./Contact"));
-const Auth = React.lazy(() => import("./Auth"));
-
-const loading = (<span>Loading...</span>);
+import React, { Fragment, useState } from 'react';
+import { Provider } from "react-redux";
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import configStore from "store/configStore";
+import NotFound from "components/NotFound"
+import HomeRoute from "routes/common/Home.route"
+import AboutRoute from "routes/common/About.route"
+import ContactRoute from "routes/common/Contact.route"
+import { SignIn, SignUp } from "routes/common/Auth.route"
+import ProfileRoute from "routes/auth/Profile.route"
+import ROUTES from 'constants/routes.constants';
+import AuthLayout from 'components/layouts/Auth.layout';
+import CommonLayouts from 'components/layouts/Common.layout';
+import 'App.css';
 
 function App() {
 
-	const PAGES = {
-		home: {
-			key: "home",
-			element: <Home />
-		},
-		about: {
-			key: "about",
-			element: <About />
-		},
-		contact: {
-			key: "contact",
-			element: <Contact id="1" />
-		},
-		auth: {
-			key: "auth",
-			element: <Auth />
-		},
-	}
-
-	const [currentPage, setCurrentPage] = useState(PAGES.home.key);
-
+	const router =  createBrowserRouter(createRoutesFromElements(
+		<Route path={ROUTES.HOME.url} element={<CommonLayouts />} errorElement={<NotFound />}>
+			<Route path={ROUTES.HOME.url} element={<HomeRoute />}/>
+			<Route path={ROUTES.ABOUT.url} element={<AboutRoute />}/>
+			<Route path={ROUTES.CONTACT.url} element={<ContactRoute />}/>
+			<Route path={ROUTES.AUTH.url} element={<AuthLayout />}>
+				<Route path={ROUTES.AUTH_SIGN_IN.url} element={<SignIn />}/>
+				<Route path={ROUTES.AUTH_SIGN_UP.url} element={<SignUp />}/>
+			</Route>
+			<Route path={ROUTES.PROFILE.url} element={<ProfileRoute />}/>
+		</Route>
+	))
 	return (
 		<Provider store={configStore}>
-			<div className="App">
-				<header className="App-header">
-					<nav>
-						<ul>
-							{
-								Object.values(PAGES).map(pageInfo => {
-									return (
-										<li key={pageInfo.key}>
-											<button
-												className={
-													"page-link" +
-													(
-														currentPage === pageInfo.key ? " page-link-active" : ""
-													)
-												}
-												onClick={() => {
-													setCurrentPage(pageInfo.key)
-												}}
-											>
-												{pageInfo.key.toUpperCase()}
-											</button>
-										</li>
-									);
-								})
-							}
-						</ul>
-					</nav>
-				</header>
-				<main>
-					<React.Suspense fallback={loading}>
-						{
-							PAGES[currentPage].element
-						}
-					</React.Suspense>
-				</main>
-			</div>
+			<RouterProvider router={router} />
 		</Provider>
 	);
 }

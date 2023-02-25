@@ -17,7 +17,6 @@ export default {
 	},
 	/* state of auth */
 	auth: {
-		isAuthorized: false,
 		title: "Auth",
 		text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi deleniti iure ullam, saepe tempora excepturi esse aspernatur enim dignissimos recusandae nemo debitis nihil consequatur voluptatibus, voluptatem necessitatibus adipisci quos repellendus."
 	}

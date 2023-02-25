@@ -17,21 +17,21 @@
 	align-items: center;
 }
 
-.App-header > nav {
+.navigation {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.App-header > nav > ul {
+.navigation > ul {
 	list-style-type: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.App-header > nav > ul > li + li {
+.App-header > .navigation > ul > li + li {
 	margin-left: 5px;
 }
 
